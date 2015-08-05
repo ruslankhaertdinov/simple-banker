@@ -25,4 +25,29 @@ angular.module('todoApp', [])
         if (!todo.done) todoList.todos.push(todo);
       });
     };
+  })
+  .controller('TransactionListController', function() {
+    var transactionList = this;
+    transactionList.transactions = [
+      { text: 'Salary', amount: 1000, checked: false },
+      { text: 'taxi', amount: 50, checked: false }
+    ];
+
+    transactionList.addTransaction = function() {
+      transactionList.transactions.push({
+        text: transactionList.transactionText,
+        amount: transactionList.transactionAmount
+      });
+      transactionList.transactionText = '';
+      transactionList.transactionAmount = '';
+      // count current balance
+    };
+
+    transactionList.archive = function() {
+      var oldTransactions = transactionList.transactions;
+      transactionList.transactions = [];
+      angular.forEach(oldTransactions, function(transaction) {
+        if (!transaction.checked) transactionList.transactions.push(transaction);
+      });
+    };
   });
