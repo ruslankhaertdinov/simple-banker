@@ -40,7 +40,7 @@ angular.module('todoApp', [])
       });
       transactionList.transactionText = '';
       transactionList.transactionAmount = '';
-      // count current balance
+      document.getElementById('transaction_text').focus();
     };
 
     transactionList.archive = function() {
@@ -49,5 +49,13 @@ angular.module('todoApp', [])
       angular.forEach(oldTransactions, function(transaction) {
         if (!transaction.checked) transactionList.transactions.push(transaction);
       });
+    };
+
+    transactionList.balance = function() {
+      var sum = 0;
+      angular.forEach(transactionList.transactions, function(transaction) {
+        sum += parseFloat(transaction.amount);
+      });
+      return sum;
     };
   });
