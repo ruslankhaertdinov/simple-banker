@@ -27,10 +27,12 @@
 <h2>Simple Banker</h2>
 
 <div ng-controller="TransactionListController as transactionList">
+  Search: <input ng-model="query">
+  <p>
   [ <a href="" ng-click="transactionList.archive()">archive</a> ]
   [ <span>Balance {{transactionList.balance()}}</span> ]
   <ul class="unstyled">
-    <li ng-repeat="transaction in transactionList.transactions">
+    <li ng-repeat="transaction in transactionList.transactions | filter:query">
       <input type="checkbox" ng-model="transaction.checked">
       <span class="checked-{{transaction.checked}}">{{transaction.text}} {{transaction.amount}}</span>
     </li>
