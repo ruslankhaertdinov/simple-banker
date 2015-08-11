@@ -2,14 +2,15 @@ angular.module('bankerApp', [])
   .controller('TransactionListController', function() {
     var transactionList = this;
     transactionList.transactions = [
-      { text: 'Salary', amount: 1000, checked: false },
-      { text: 'taxi', amount: 50, checked: false }
+      { text: 'Salary', amount: 1000, datetime: new Date() },
+      { text: 'taxi', amount: 50, datetime: new Date() }
     ];
 
     transactionList.addTransaction = function() {
       transactionList.transactions.push({
         text: transactionList.transactionText,
-        amount: transactionList.transactionAmount
+        amount: transactionList.transactionAmount,
+        datetime: new Date()
       });
       transactionList.transactionText = '';
       transactionList.transactionAmount = '';
