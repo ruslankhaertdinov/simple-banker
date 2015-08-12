@@ -14,7 +14,7 @@
   Search: <input ng-model="query">
 
   <!--<p>-->
-    <!--[ <a href="" ng-click="transactionList.archive()">archive</a> ]-->
+  <!--[ <a href="" ng-click="transactionList.archive()">archive</a> ]-->
 
   <div class="col-md-8">
     <table class="table table-striped table-bordered">
@@ -27,7 +27,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="transaction in transactionList.transactions | filter:query">
+      <tr ng-repeat="transaction in transactionList.transactions | filter:query | orderBy:'datetime'">
         <th>{{transaction.datetime | date: 'dd/MM/yyyy'}}</th>
         <td>{{transaction.text}}</td>
         <td>{{transaction.amount}}</td>
@@ -43,10 +43,15 @@
   </div>
 
   <form ng-submit="transactionList.addTransaction()">
-    <input type="text" ng-model="transactionList.transactionText" size="30"
-           placeholder="add new transaction here" id="transaction_text">
+    <input type="date" ng-model="transactionList.transactionDate" size="5">
+
+    <input type="text"
+           ng-model="transactionList.transactionText"
+           size="30"
+           placeholder="add new transaction here"
+           id="transaction_text">
     <input type="text" ng-model="transactionList.transactionAmount" size="5" placeholder="$0">
-    <input class="btn-primary" type="submit" value="add">
+    <input class="btn btn-default" type="submit" value="add">
   </form>
 </div>
 </body>

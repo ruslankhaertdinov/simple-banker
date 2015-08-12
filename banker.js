@@ -10,10 +10,11 @@ angular.module('bankerApp', [])
       transactionList.transactions.push({
         text: transactionList.transactionText,
         amount: transactionList.transactionAmount,
-        datetime: new Date()
+        datetime: transactionList.transactionDate
       });
       transactionList.transactionText = '';
       transactionList.transactionAmount = '';
+      transactionList.transactionDate = new Date();
       document.getElementById('transaction_text').focus();
     };
 
