@@ -1,4 +1,4 @@
-angular.module('bankerApp', [])
+angular.module('bankerApp', ['xeditable'])
   .controller('TransactionListController', function() {
     var transactionList = this;
     transactionList.transactions = [
