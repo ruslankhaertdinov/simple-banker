@@ -30,7 +30,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="transaction in transactionList.transactions | filter:query | orderBy:'datetime'">
-        <th editable-text="transaction.datetime">{{transaction.datetime | date: 'dd/MM/yyyy'}}</th>
+        <th editable-date="transaction.datetime">{{transaction.datetime | date: 'dd/MM/yyyy'}}</th>
         <td editable-text="transaction.text">{{transaction.text}} </td>
         <td editable-text="transaction.amount">{{transaction.amount}}</td>
         <!--<td>@mdo</td>-->
