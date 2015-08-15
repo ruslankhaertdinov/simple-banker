@@ -35,11 +35,11 @@ angular.module('bankerApp', ['xeditable'])
       return sum;
     };
 
-    function isNumber(n) {
-      return !isNaN(parseFloat(n)) && isFinite(n);
-    }
+    //function isNumber(n) {
+    //  return !isNaN(parseFloat(n)) && isFinite(n);
+    //}
 
-    $scope.Date = new Date();
+    $scope.currentDate = new Date();
 
     $scope.checkDate = function(str) {
       if (!Date.parse(str)) {
