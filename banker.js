@@ -34,9 +34,19 @@ angular.module('bankerApp', ['xeditable'])
       return sum;
     };
 
-    //function isNumber(n) {
-    //  return !isNaN(parseFloat(n)) && isFinite(n);
-    //}
+    function isNumber(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    }
 
     $scope.Date = new Date();
+
+    $scope.checkDate = function(str) {
+      if (!Date.parse(str)) {
+        return "Should be correct date!";
+      }
+    };
+
+    $scope.checkAmount = function(n) {
+      if (!isNumber(n)) return "Should be correct amount";
+    };
   });
