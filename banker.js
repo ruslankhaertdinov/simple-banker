@@ -7,9 +7,10 @@ angular.module('bankerApp', ['xeditable'])
     ];
 
     transactionList.addTransaction = function() {
+      var correctedAmount = transactionList.transactionAmount.replace(',', '.');
       transactionList.transactions.push({
         text: transactionList.transactionText,
-        amount: transactionList.transactionAmount,
+        amount: correctedAmount,
         datetime: transactionList.transactionDate
       });
       transactionList.transactionText = '';
@@ -44,9 +45,5 @@ angular.module('bankerApp', ['xeditable'])
       if (!Date.parse(str)) {
         return "Should be correct date!";
       }
-    };
-
-    $scope.checkAmount = function(n) {
-      if (!isNumber(n)) return "Should be correct amount";
     };
   });
