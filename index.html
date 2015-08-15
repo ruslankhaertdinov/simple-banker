@@ -45,14 +45,14 @@
   </div>
 
   <form ng-submit="transactionList.addTransaction()">
-    <input type="date" ng-model="transactionList.transactionDate" size="5">
+    <input type="date" ng-model="transactionList.transactionDate" size="5" required="true" ng-init="transactionList.transactionDate=Date">
 
     <input type="text"
            ng-model="transactionList.transactionText"
            size="30"
            placeholder="add new transaction here"
            id="transaction_text">
-    <input type="text" ng-model="transactionList.transactionAmount" size="5" placeholder="$0">
+    <input type="text" ng-model="transactionList.transactionAmount" size="5" placeholder="$0" required="true">
     <input class="btn btn-default" type="submit" value="add">
   </form>
 </div>

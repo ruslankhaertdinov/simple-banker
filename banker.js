@@ -1,5 +1,5 @@
 angular.module('bankerApp', ['xeditable'])
-  .controller('TransactionListController', function() {
+  .controller('TransactionListController', function($scope) {
     var transactionList = this;
     transactionList.transactions = [
       { text: 'Salary', amount: 1000, datetime: new Date() },
@@ -34,4 +34,9 @@ angular.module('bankerApp', ['xeditable'])
       return sum;
     };
 
+    //function isNumber(n) {
+    //  return !isNaN(parseFloat(n)) && isFinite(n);
+    //}
+
+    $scope.Date = new Date();
   });
