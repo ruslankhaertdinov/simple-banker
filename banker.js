@@ -1,4 +1,4 @@
-angular.module('bankerApp', ['xeditable'])
+var app = angular.module('bankerApp', ['xeditable'])
   .controller('TransactionListController', function($scope) {
     var transactionList = this;
     transactionList.transactions = [
@@ -47,3 +47,7 @@ angular.module('bankerApp', ['xeditable'])
       }
     };
   });
+
+app.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+});
