@@ -1,4 +1,4 @@
-var app = angular.module('bankerApp', ['xeditable'])
+var app = angular.module('bankerApp', ['xeditable', 'ngMock'])
   .controller('TransactionListController', function($scope) {
     var transactionList = this;
     transactionList.transactions = [
@@ -34,10 +34,6 @@ var app = angular.module('bankerApp', ['xeditable'])
       });
       return sum;
     };
-
-    //function isNumber(n) {
-    //  return !isNaN(parseFloat(n)) && isFinite(n);
-    //}
 
     $scope.currentDate = new Date();
 
